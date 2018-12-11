@@ -1,0 +1,15 @@
+table {
+    width: 30%;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+
+  .row {
+    cursor: pointer;
+  }
+
+  .row:hover {
+    background-color: #ccc;
+  }

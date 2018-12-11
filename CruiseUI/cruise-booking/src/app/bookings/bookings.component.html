@@ -1,0 +1,38 @@
+<button mat-button (click)="goBack()">< Back</button>
+
+<form [formGroup]="searchForm" class="example-form" (ngSubmit)="onSubmit(searchForm)">
+
+    <label>
+      Search text:
+      <input matInput type="text" formControlName="searchText">
+    </label>
+
+  <button mat-button type="submit">Search</button>
+
+</form>
+
+<table mat-table [dataSource]="source" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="bookingId">
+    <th mat-header-cell *matHeaderCellDef> Booking Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.bookingId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="shipName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.shipName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[10]"></mat-paginator>
